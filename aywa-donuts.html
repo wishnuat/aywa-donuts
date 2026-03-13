@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aywa Donuts — Balikpapan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --tosca: #2BBFB3;
+      --tosca-dark: #1a9990;
+      --tosca-light: #e0f7f6;
+      --tosca-pale: #f0fafa;
+      --cream: #fff8f0;
+      --warm: #ff8c42;
+      --warm-light: #ffe8d6;
+      --brown: #5c3d2e;
+      --text: #2a2a2a;
+      --muted: #7a7a7a;
+      --white: #ffffff;
+      --red: #e63946;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--tosca-light);
+      padding: 0 5%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--tosca-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--warm); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--tosca); }
+
+    .nav-order-btn {
+      background: var(--tosca);
+      color: white !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-order-btn:hover {
+      background: var(--tosca-dark) !important;
+      color: white !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--tosca-pale) 0%, var(--cream) 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 5% 60px;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .hero-blob-1 {
+      width: 500px; height: 500px;
+      background: var(--tosca);
+      top: -100px; right: -120px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-blob-2 {
+      width: 300px; height: 300px;
+      background: var(--warm);
+      bottom: -60px; left: -80px;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--warm-light);
+      color: var(--warm);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title .highlight {
+      color: var(--tosca);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--tosca);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 24px rgba(43,191,179,0.35);
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: var(--tosca-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(43,191,179,0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--tosca-dark);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 2.5px solid var(--tosca);
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: var(--tosca-light);
+      transform: translateY(-3px);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donut-ring {
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--tosca) 0deg 60deg,
+        var(--warm) 60deg 120deg,
+        #f7cac9 120deg 180deg,
+        var(--tosca-light) 180deg 240deg,
+        #ffd166 240deg 300deg,
+        var(--tosca) 300deg 360deg
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(43,191,179,0.3);
+      animation: spin-slow 20s linear infinite;
+      position: relative;
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .donut-inner {
+      width: 240px;
+      height: 240px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: spin-slow 20s linear infinite reverse;
+    }
+
+    .donut-emoji {
+      font-size: 5rem;
+      line-height: 1;
+      display: block;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--tosca-dark);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--tosca);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    /* ── MENU ── */
+    #menu {
+      background: white;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .menu-filter {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      border: 2px solid var(--tosca-light);
+      background: white;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--tosca);
+      color: white;
+      border-color: var(--tosca);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      background: var(--tosca-pale);
+      border-radius: 20px;
+      padding: 1.5rem;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(43,191,179,0.2);
+      border-color: var(--tosca-light);
+    }
+
+    .menu-emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .menu-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-new { background: var(--red); color: white; }
+    .badge-best { background: var(--warm); color: white; }
+
+    .menu-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+
+    .menu-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .menu-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .menu-price {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--tosca-dark);
+    }
+
+    .order-mini-btn {
+      background: var(--tosca);
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .order-mini-btn:hover {
+      background: var(--tosca-dark);
+      transform: scale(1.05);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--tosca-pale);
+    }
+
+    .about-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card-main {
+      background: white;
+      border-radius: 24px;
+      padding: 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(43,191,179,0.15);
+    }
+
+    .about-big-emoji { font-size: 6rem; display: block; margin-bottom: 1rem; }
+
+    .about-card-tag {
+      background: var(--tosca);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      display: inline-block;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: white;
+      border-radius: 16px;
+      padding: 0.75rem 1.2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .fb-1 { top: -20px; right: -20px; color: var(--warm); }
+    .fb-2 { bottom: -20px; left: -20px; color: var(--tosca); }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .feature-item {
+      background: white;
+      border-radius: 16px;
+      padding: 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-title {
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--brown);
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-text {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── ORDER ── */
+    #order {
+      background: white;
+    }
+
+    .order-container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .order-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .step-card {
+      background: var(--tosca-pale);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      background: var(--tosca);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin: 0 auto 1rem;
+    }
+
+    .step-icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+
+    .step-title {
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .step-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25D366;
+      color: white;
+      padding: 1.1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+      transition: all 0.25s;
+    }
+
+    .wa-btn:hover {
+      background: #1ebe59;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(37,211,102,0.5);
+    }
+
+    .wa-icon { font-size: 1.4rem; }
+
+    /* ── LOCATION ── */
+    #location {
+      background: var(--tosca-pale);
+    }
+
+    .location-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .location-map {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(43,191,179,0.2);
+      height: 320px;
+      background: var(--tosca-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s;
+    }
+
+    .location-map:hover { transform: scale(1.02); }
+
+    .map-emoji { font-size: 4rem; }
+
+    .map-hint {
+      background: var(--tosca);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .location-info { }
+
+    .info-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-icon {
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(43,191,179,0.15);
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      color: var(--tosca);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-value {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 5%;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      color: var(--tosca-light);
+    }
+
+    .footer-logo span { color: var(--warm); }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+    }
+
+    /* ── FLOATING WA ── */
+    .float-wa {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      text-decoration: none;
+      z-index: 99;
+      transition: all 0.25s;
+      animation: pulse-wa 2.5s ease-in-out infinite;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 32px rgba(37,211,102,0.65);
+    }
+
+    @keyframes pulse-wa {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.5); }
+      50% { box-shadow: 0 6px 36px rgba(37,211,102,0.8), 0 0 0 8px rgba(37,211,102,0.15); }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .order-steps { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .floating-badge { display: none; }
+      .hero-btns { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Aywa <span>Donuts</span></div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#location">Lokasi</a></li>
+    <li><a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20🍩" target="_blank" class="nav-order-btn">Order Sekarang</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-tag">🍩 Outlet di Balikpapan</span>
+      <h1 class="hero-title">
+        Donut <span class="highlight">Segar</span><br/>Setiap Hari
+      </h1>
+      <p class="hero-desc">
+        Dari bomboloni lembut, donat klasik, hingga camilan baru yang bikin nagih — semua ada di Aywa Donuts! Dibuat fresh, dinikmati bareng.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20🍩" target="_blank" class="btn-primary">
+          🛒 Pesan Sekarang
+        </a>
+        <a href="#menu" class="btn-outline">Lihat Menu</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">8+</span>
+          <span class="stat-label">Varian Menu</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">Fresh</span>
+          <span class="stat-label">Dibuat Daily</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3k</span>
+          <span class="stat-label">Mulai Dari</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="donut-ring">
+        <div class="donut-inner">
+          <span class="donut-emoji">🍩</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header fade-up">
+    <p class="section-label">Pilihan Kami</p>
+    <h2 class="section-title">Menu Favorit</h2>
+    <p class="section-desc" style="margin:0 auto;">Semua dibuat fresh setiap hari. Dari yang manis, gurih, sampai yang krispy — ada semua!</p>
+  </div>
+
+  <div class="menu-grid">
+
+    <div class="menu-card fade-up">
+      <span class="menu-emoji">🍩</span>
+      <div class="menu-name">Donat Reguler</div>
+      <div class="menu-desc">Isi 6 pcs. Donat klasik lembut dengan berbagai topping pilihan.</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 39.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Donat%20Reguler%20🍩" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up">
+      <span class="menu-emoji">🍬</span>
+      <div class="menu-name">Donat Mini</div>
+      <div class="menu-desc">Isi 12 pcs. Mungil-mungil tapi bikin nagih, cocok buat share!</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 44.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Donat%20Mini%20🍩" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up" style="border-color: var(--warm);">
+      <span class="menu-badge badge-best">⭐ Best Seller</span>
+      <span class="menu-emoji">🫓</span>
+      <div class="menu-name">Bomboloni</div>
+      <div class="menu-desc">Isi 10 pcs. Pilihan isian: Coklat, Vanilla, Strawberry, Blueberry, Durian, Tiramisu (max 2 pcs/rasa).</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 30.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Bomboloni%20🍩" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up">
+      <span class="menu-emoji">🍞</span>
+      <div class="menu-name">Roti Kopi</div>
+      <div class="menu-desc">Roti lembut dengan cita rasa kopi yang khas. Pas buat sarapan!</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 7.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Roti%20Kopi" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up">
+      <span class="menu-emoji">🧁</span>
+      <div class="menu-name">Kue Sus</div>
+      <div class="menu-desc">Choux pastry lembut dengan isian krim yang creamy dan lezat.</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 3.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Kue%20Sus" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up">
+      <span class="menu-badge badge-new">New!</span>
+      <span class="menu-emoji">🥖</span>
+      <div class="menu-name">Churros</div>
+      <div class="menu-desc">Churros crispy hangat. Cocok dinikmati kapan saja, dimana saja!</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 15.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Churros%20New!" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up">
+      <span class="menu-badge badge-new">New!</span>
+      <span class="menu-emoji">🥟</span>
+      <div class="menu-name">Risoles Panas</div>
+      <div class="menu-desc">Pilihan isian Mayo atau Ragout. Hangat, gurih, dan bikin kenyang!</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 5.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Risoles%20Panas" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+    <div class="menu-card fade-up">
+      <span class="menu-badge badge-new">New!</span>
+      <span class="menu-emoji">🧆</span>
+      <div class="menu-name">Dimsum Goreng Keju Lumer</div>
+      <div class="menu-desc">Dimsum goreng dengan keju lumer di dalamnya. Gurih banget!</div>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 8.000</span>
+        <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20Dimsum%20Goreng%20Keju%20Lumer" target="_blank" class="order-mini-btn">Pesan</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual fade-up">
+      <div class="about-card-main">
+        <span class="about-big-emoji">🍩</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--brown);margin-bottom:0.5rem;">Aywa Donuts</h3>
+        <p style="color:var(--muted);font-size:0.9rem;font-weight:600;margin-bottom:1rem;">Dari dapur rumahan, kini punya outlet sendiri di Balikpapan!</p>
+        <span class="about-card-tag">🏪 Outlet Balikpapan</span>
+      </div>
+      <div class="floating-badge fb-1">🌟 Fresh Daily</div>
+      <div class="floating-badge fb-2">❤️ Dibuat dengan cinta</div>
+    </div>
+
+    <div class="about-text fade-up">
+      <p class="section-label">Tentang Kami</p>
+      <h2 class="section-title">Berawal dari Rumah, Kini Hadir untuk Kamu</h2>
+      <p class="section-desc">
+        Aywa Donuts lahir dari passion membuat kue yang lezat dan terjangkau. Dari dapur rumahan kecil hingga kini punya outlet sendiri, kami terus berinovasi menghadirkan produk-produk baru yang bikin kamu ketagihan.
+      </p>
+      <div class="about-features">
+        <div class="feature-item">
+          <span class="feature-icon">🥚</span>
+          <div>
+            <div class="feature-title">Bahan Segar</div>
+            <div class="feature-text">Dibuat fresh setiap hari tanpa bahan pengawet berlebih</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💰</span>
+          <div>
+            <div class="feature-title">Harga Terjangkau</div>
+            <div class="feature-text">Mulai 3.000 rupiah untuk semua kalangan</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🎨</span>
+          <div>
+            <div class="feature-title">Banyak Varian</div>
+            <div class="feature-text">8+ menu dengan varian rasa yang terus bertambah</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📦</span>
+          <div>
+            <div class="feature-title">Bisa Pre-order</div>
+            <div class="feature-text">Order dulu lewat WA, ambil atau dikirim</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="order-container">
+    <div class="fade-up">
+      <p class="section-label">Cara Pesan</p>
+      <h2 class="section-title">Mudah Banget Ordernya!</h2>
+      <p class="section-desc" style="margin: 0 auto 0;">
+        Cukup 3 langkah simpel, pesanan kamu langsung diproses.
+      </p>
+    </div>
+
+    <div class="order-steps fade-up">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <span class="step-icon">📋</span>
+        <div class="step-title">Pilih Menu</div>
+        <div class="step-text">Lihat menu di atas dan pilih yang kamu mau. Bisa mix & match!</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <span class="step-icon">💬</span>
+        <div class="step-title">Chat WhatsApp</div>
+        <div class="step-text">Klik tombol WA di bawah dan kirim pesananmu. Kami fast respon!</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <span class="step-icon">🍩</span>
+        <div class="step-title">Nikmati!</div>
+        <div class="step-text">Ambil langsung ke outlet atau kami bantu koordinasi pengiriman.</div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20🍩%0A%0ANama%3A%0APesanan%3A%0AJumlah%3A" target="_blank" class="wa-btn">
+        <span class="wa-icon">💬</span>
+        Order via WhatsApp
+      </a>
+      <p style="margin-top:1rem;color:var(--muted);font-size:0.85rem;font-weight:600;">
+        0858-4947-5787 · Fast respon setiap hari
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="location-grid">
+    <div class="fade-up">
+      <p class="section-label">Temukan Kami</p>
+      <h2 class="section-title">Lokasi Outlet</h2>
+      <div class="info-row" style="margin-top:2rem;">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Alamat</div>
+          <div class="info-value">Jl. Indrakila Seberang, Kel. Gunung Samarinda Baru<br/>Samping Tribun Kaltim, Balikpapan</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">WhatsApp / Telp</div>
+          <div class="info-value">0858-4947-5787</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-label">Jam Buka</div>
+          <div class="info-value">Setiap Hari · Hubungi kami untuk info jam terbaru</div>
+        </div>
+      </div>
+      <a href="https://maps.google.com/?q=Jl+Indrakila+Gunung+Samarinda+Baru+Balikpapan" target="_blank" class="btn-primary" style="margin-top:1.5rem;display:inline-flex;">
+        📍 Buka di Google Maps
+      </a>
+    </div>
+
+    <div class="fade-up">
+      <a href="https://maps.google.com/?q=Jl+Indrakila+Gunung+Samarinda+Baru+Balikpapan" target="_blank" class="location-map">
+        <span class="map-emoji">🗺️</span>
+        <p style="font-weight:700;color:var(--brown);font-size:0.95rem;text-align:center;padding:0 1rem;">
+          Jl. Indrakila Seberang<br/>Gunung Samarinda Baru, Balikpapan
+        </p>
+        <span class="map-hint">📍 Buka Google Maps</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Aywa <span>Donuts</span></div>
+  <p class="footer-tagline">🍩 Fresh Every Day · Balikpapan</p>
+  <p class="footer-copy">© 2025 Aywa Donuts. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/6285849475787?text=Halo%20Aywa%20Donuts!%20Saya%20mau%20pesan%20🍩" target="_blank" class="float-wa" title="Order via WhatsApp">
+  💬
+</a>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, (i % 4) * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
